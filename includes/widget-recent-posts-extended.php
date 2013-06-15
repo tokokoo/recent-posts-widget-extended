@@ -3,6 +3,8 @@
 // Exit if accessed directly
 if (!defined('ABSPATH')) exit;
 
+define( 'RPWE_TRANSIENT_ID', 'rpwe_widget_cached_posts' );
+
 class rpwe_widget extends WP_Widget
 {
 
@@ -58,7 +60,7 @@ class rpwe_widget extends WP_Widget
 
 		global $post;
 
-		if (false === ($rpwewidget = get_transient('rpwewidget_' . $widget_id))) {
+		if (false === ($rpwewidget = get_transient( RPWE_TRANSIENT_ID ))) {
 
 			$args = array(
 				'numberposts' => $limit,
@@ -71,7 +73,7 @@ class rpwe_widget extends WP_Widget
 			//by default, cache for 12 hours
 			$cachelife = (is_numeric($cacheLife) ? $cacheLife : 43200);
 
-			set_transient('rpwewidget_' . $widget_id, $rpwewidget, $cacheLife);
+			set_transient( RPWE_TRANSIENT_ID, $rpwewidget, $cacheLife);
 
 		} ?>
 
@@ -144,7 +146,7 @@ class rpwe_widget extends WP_Widget
 		$instance['date'] = $new_instance['date'];
 		$instance['css'] = wp_filter_nohtml_kses($new_instance['css']);
 
-		delete_transient('rpwewidget_' . $this->id);
+		delete_transient( RPWE_TRANSIENT_ID );
 
 		return $instance;
 
@@ -296,5 +298,15 @@ function rpwe_excerpt($length)
 	return $excerpt;
 
 }
+
+/**
+ * Delete the transient, to get new data for the next time the widget is shown.
+ */
+function rpwe_delete_transient($arg0 = false, $arg1 = false) {
+	delete_transient( RPWE_TRANSIENT_ID );	
+}
+
+add_action( 'save_post', 'rpwe_delete_transient' );
+add_action( 'delete_post', 'rpwe_delete_transient' );
 
 ?>
