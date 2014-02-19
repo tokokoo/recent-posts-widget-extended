@@ -63,7 +63,7 @@ class rpwe_widget extends WP_Widget {
 
 		/* Display the default style of the plugin. */
 		if ( $styles_default == true ) {
-            wp_register_style( 'rpwe_css', plugins_url('rpwe.css', __FILE__));
+            wp_register_style( 'rpwe_css', get_stylesheet_directory_uri() . '/rpwe.css');
             wp_enqueue_style( 'rpwe_css' );
 		}
 
