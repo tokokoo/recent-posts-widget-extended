@@ -1,0 +1,194 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Recent Posts Widget Extended 0.9\n"
+"POT-Creation-Date: 2014-02-19 18:34+0700\n"
+"PO-Revision-Date: 2014-02-19 14:40+0100\n"
+"Last-Translator: skara <skara@gmx.org>\n"
+"Language-Team: skara <skara@gmx.org>\n"
+"Language: de_DE\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.6.4\n"
+"X-Poedit-KeywordsList: __;_e;esc_attr__\n"
+"X-Poedit-Basepath: .\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Language: de_DE\n"
+"X-Source-Language: C\n"
+"X-Poedit-SearchPath-0: ..\n"
+
+#: ../includes/widget-recent-posts-extended.php:19
+msgid ""
+"An advanced widget that gives you total control over the output of your "
+"site’s most recent Posts."
+msgstr ""
+"Ein fortgeschrittenes Widget welches totale Kontrolle über die Ausgabe der "
+"Letzten Beiträge gibt."
+
+#: ../includes/widget-recent-posts-extended.php:28
+msgid "Recent Posts Extended"
+msgstr "Letzte Beiträge Erweitert"
+
+#: ../includes/widget-recent-posts-extended.php:119
+#: ../includes/widget-recent-posts-extended.php:159
+#, php-format
+msgid "Permalink to %s"
+msgstr "Link zu %s"
+
+#: ../includes/widget-recent-posts-extended.php:251
+msgid "Read More &raquo;"
+msgstr "Weiterlesen &raquo;"
+
+#: ../includes/widget-recent-posts-extended.php:286
+msgid "Title:"
+msgstr "Beitrag:"
+
+#: ../includes/widget-recent-posts-extended.php:290
+msgid "Title URL:"
+msgstr "Beitrags-URL:"
+
+#: ../includes/widget-recent-posts-extended.php:294
+msgid "CSS ID:"
+msgstr ""
+
+#: ../includes/widget-recent-posts-extended.php:298
+msgid "Use Default Styles"
+msgstr "Nutze Standardstyle"
+
+#: ../includes/widget-recent-posts-extended.php:302
+msgid "CSS:"
+msgstr ""
+
+#: ../includes/widget-recent-posts-extended.php:304
+msgid "If you turn off the default styles, please create your own style."
+msgstr ""
+"Bitte eigenen Style erstellen, wenn der Standardstyle deaktiviert wird."
+
+#: ../includes/widget-recent-posts-extended.php:312
+msgid "Limit:"
+msgstr ""
+
+#: ../includes/widget-recent-posts-extended.php:316
+msgid "Offset (the number of posts to skip):"
+msgstr "Offset (Anzahl der zu überspringenden Beiträge):"
+
+#: ../includes/widget-recent-posts-extended.php:320
+msgid "Order:"
+msgstr "Sortieren:"
+
+#: ../includes/widget-recent-posts-extended.php:322
+msgid "DESC"
+msgstr "Absteigend"
+
+#: ../includes/widget-recent-posts-extended.php:323
+msgid "ASC"
+msgstr "Aufsteigend"
+
+#: ../includes/widget-recent-posts-extended.php:327
+msgid "Orderby:"
+msgstr "Sortieren nach:"
+
+#: ../includes/widget-recent-posts-extended.php:329
+msgid "ID"
+msgstr ""
+
+#: ../includes/widget-recent-posts-extended.php:330
+msgid "Author"
+msgstr "Autor"
+
+#: ../includes/widget-recent-posts-extended.php:331
+msgid "Title"
+msgstr "Titel"
+
+#: ../includes/widget-recent-posts-extended.php:332
+msgid "Date"
+msgstr "Datum"
+
+#: ../includes/widget-recent-posts-extended.php:333
+msgid "Modified"
+msgstr "Bearbeitet"
+
+#: ../includes/widget-recent-posts-extended.php:334
+msgid "Random"
+msgstr "Zufällig"
+
+#: ../includes/widget-recent-posts-extended.php:335
+msgid "Comment Count"
+msgstr "Kommentaranzahl"
+
+#: ../includes/widget-recent-posts-extended.php:336
+msgid "Menu Order"
+msgstr "Menüordnung"
+
+#: ../includes/widget-recent-posts-extended.php:340
+msgid "Limit to Category: "
+msgstr "Begrenzen auf Kategorie:"
+
+#: ../includes/widget-recent-posts-extended.php:351
+msgid "Limit to Tag: "
+msgstr "Begrenzen auf Tag:"
+
+#: ../includes/widget-recent-posts-extended.php:363
+msgid "Choose the Post Type: "
+msgstr "Beitragstyp auswählen:"
+
+#: ../includes/widget-recent-posts-extended.php:379
+msgid "Display Thumbnail"
+msgstr "Thumbnail anzeigen"
+
+#: ../includes/widget-recent-posts-extended.php:383
+msgid "Thumbnail (height, width, align):"
+msgstr "Thumbnail (Höhe, Breite, Ausrichtung):"
+
+#: ../includes/widget-recent-posts-extended.php:387
+msgid "Left"
+msgstr "Links"
+
+#: ../includes/widget-recent-posts-extended.php:388
+msgid "Right"
+msgstr "Rechts"
+
+#: ../includes/widget-recent-posts-extended.php:389
+msgid "Center"
+msgstr "Mittig"
+
+#: ../includes/widget-recent-posts-extended.php:393
+msgid "Default Thumbnail:"
+msgstr "Standard Thumbnail:"
+
+#: ../includes/widget-recent-posts-extended.php:395
+msgid "Leave it blank to disable."
+msgstr "Leerlassen zum deaktivieren."
+
+#: ../includes/widget-recent-posts-extended.php:401
+msgid "Display Excerpt"
+msgstr "Auszug anzeigen"
+
+#: ../includes/widget-recent-posts-extended.php:405
+msgid "Excerpt Length:"
+msgstr "Auszugslänge:"
+
+#: ../includes/widget-recent-posts-extended.php:409
+msgid "Display Readmore"
+msgstr "Weiterlesen anzeigen"
+
+#: ../includes/widget-recent-posts-extended.php:413
+msgid "Readmore Text:"
+msgstr "Weiterlesen Text:"
+
+#: ../includes/widget-recent-posts-extended.php:417
+msgid "Display Date"
+msgstr "Datum anzeigen"
+
+#: ../includes/widget-recent-posts-extended.php:421
+msgid "Date Format:"
+msgstr "Datumsformat:"
+
+#: ../includes/widget-recent-posts-extended.php:423
+msgid ""
+"<a href=\"http://codex.wordpress.org/Formatting_Date_and_Time\" target="
+"\"_blank\">Date reference</a>"
+msgstr ""
+"<a href=\"http://codex.wordpress.org/Formatting_Date_and_Time\" target="
+"\"_blank\">Datums Referenz (engl.)</a>"
