@@ -71,6 +71,10 @@ You can use `rpwe_default_query_arguments`
 = Thumbnail size option not working properly =
 Yes, this is because the plugin uses `the_post_thumbnail` custom sizes and not uses `add_image_size` function, [more information](http://codex.wordpress.org/Function_Reference/the_post_thumbnail). At the moment I have no idea how to fix this issue.
 
+= How to set a custom style as default =
+Define your styles in rpwe_custom.css at your theme folder. You may use includes/rpwe.css as template.
+This way your custom style will remain even if there's an update to this plugin.
+
 == Screenshots ==
 
 1. The widget settings

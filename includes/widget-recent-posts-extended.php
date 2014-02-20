@@ -61,7 +61,7 @@ class rpwe_widget extends WP_Widget {
 
 		echo $before_widget;
 
-		/* Display the default style of the plugin. */
+		/* Display the default style of the plugin located at ./include/rpwe.css or custom css from theme/child theme. */
 		if ( $styles_default == true ) {
 			rpwe_custom_styles();
 		}
@@ -460,14 +460,22 @@ function rpwe_excerpt( $length ) {
 
 /**
  * Custom Styles.
+ * Use custom css from [theme/child theme]/rpwe_custom.css
+ * or default style from include/rpwe.css
  *
- * @since 0.8
+ * CSS is enqueued so WordPress may handle it correctly e.g.
+ * for compression or combining with other styles
+ * (https://codex.wordpress.org/Function_Reference/wp_enqueue_style)
+ *
+ * @since 0.9.x
  */
 function rpwe_custom_styles() {
-	?>
-<style>
-.rpwe-block ul{list-style:none!important;margin-left:0!important;padding-left:0!important;}.rpwe-block li{border-bottom:1px solid #eee;margin-bottom:10px;padding-bottom:10px;list-style-type: none;}.rpwe-block a{display:inline!important;text-decoration:none;}.rpwe-block h3{background:none!important;clear:none;margin-bottom:0!important;margin-top:0!important;font-weight:400;font-size:12px!important;line-height:1.5em;}.rpwe-thumb{border:1px solid #EEE!important;box-shadow:none!important;margin:2px 10px 2px 0;padding:3px!important;}.rpwe-summary{font-size:12px;}.rpwe-time{color:#bbb;font-size:11px;}.rpwe-alignleft{display:inline;float:left;}.rpwe-alignright{display:inline;float:right;}.rpwe-alignnone{display:block;float:none;}.rpwe-clearfix:before,.rpwe-clearfix:after{content:"";display:table !important;}.rpwe-clearfix:after{clear:both;}.rpwe-clearfix{zoom:1;}
-</style>
-	<?php
+	if ( file_exists( get_stylesheet_directory() . '/rpwe_custom.css' ) ) {
+		wp_register_style( 'rpwe', get_stylesheet_directory_uri() . '/rpwe_custom.css' );
+	}
+	else {
+		wp_register_style( 'rpwe', plugins_url( 'rpwe.css', __FILE__) );
+	}
+	wp_enqueue_style( 'rpwe' );
 }
 ?>
