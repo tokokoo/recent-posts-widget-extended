@@ -1,6 +1,6 @@
 <?php
 /**
- * The custom recent posts widget. 
+ * The custom recent posts widget.
  * This widget gives total control over the output to the user.
  *
  * @package    Recent_Posts_Widget_Extended
@@ -65,6 +65,7 @@ class Recent_Posts_Widget_Extended extends WP_Widget {
 		$tag            = $instance['tag'];
 		$post_type      = $instance['post_type'];
 		$date           = $instance['date'];
+		$date_format    = strip_tags( $instance['date_format'] );
 		$readmore       = $instance['readmore'];
 		$readmore_text  = strip_tags( $instance['readmore_text'] );
 		$styles_default = $instance['styles_default'];
@@ -110,7 +111,7 @@ class Recent_Posts_Widget_Extended extends WP_Widget {
 
 		/**
 		 * The main Query
-		 * 
+		 *
 		 * @link http://codex.wordpress.org/Function_Reference/get_posts
 		 */
 		$rpwewidget = get_posts( $default_args );
@@ -126,25 +127,25 @@ class Recent_Posts_Widget_Extended extends WP_Widget {
 					<?php foreach ( $rpwewidget as $post ) : setup_postdata( $post ); ?>
 
 						<li class="rpwe-clearfix">
-							
+
 							<?php if ( $thumb == true ) { // Check if the thumbnail option enable. ?>
 
 								<?php if ( has_post_thumbnail() ) { // Check If post has post thumbnail. ?>
 
 									<a href="<?php the_permalink(); ?>" title="<?php printf( esc_attr__( 'Permalink to %s', 'rpwe' ), the_title_attribute('echo=0' ) ); ?>" rel="bookmark">
-										<?php the_post_thumbnail( 
+										<?php the_post_thumbnail(
 											array( $thumb_height, $thumb_width, true ),
-											array( 
+											array(
 												'class' => $thumb_align . ' rpwe-thumb the-post-thumbnail',
 												'alt'   => esc_attr( get_the_title() ),
-												'title' => esc_attr( get_the_title() ) 
-											) 
+												'title' => esc_attr( get_the_title() )
+											)
 										); ?>
 									</a>
 
 								<?php } elseif ( function_exists( 'get_the_image' ) ) { // Check if get-the-image plugin installed and active. ?>
 
-									<?php get_the_image( array( 
+									<?php get_the_image( array(
 										'height'        => $thumb_height,
 										'width'         => $thumb_width,
 										'size'          => 'rpwe-thumbnail',
@@ -155,7 +156,7 @@ class Recent_Posts_Widget_Extended extends WP_Widget {
 
 								<?php } elseif ( $thumb_default ) { // Check if the default image not empty. ?>
 
-									<?php 
+									<?php
 									printf( '<a href="%1$s" rel="bookmark"><img class="%2$s rpwe-thumb rpwe-default-thumb" src="%3$s" alt="%4$s" width="%5$s" height="%6$s"></a>',
 										esc_url( get_permalink() ),
 										$thumb_align,
@@ -175,12 +176,12 @@ class Recent_Posts_Widget_Extended extends WP_Widget {
 							</h3>
 
 							<?php if ( $date == true ) { // Check if the date option enable. ?>
-								<time class="rpwe-time published" datetime="<?php echo esc_attr( get_the_date( 'c' ) ); ?>"><?php echo get_the_date(); ?></time>
+								<time class="rpwe-time published" datetime="<?php echo esc_attr( get_the_date( 'c' ) ); ?>"><?php echo get_the_date($date_format); ?></time>
 							<?php } // endif ?>
-							
+
 							<?php if ( $excerpt == true ) { // Check if the excerpt option enable. ?>
 								<div class="rpwe-summary">
-									<?php echo rpwe_excerpt( $length ); ?> 
+									<?php echo rpwe_excerpt( $length ); ?>
 									<?php if ( $readmore == true ) { echo '<a href="' . esc_url( get_permalink() ) . '" class="more-link">' . $readmore_text . '</a>'; } ?>
 								</div>
 							<?php } // endif ?>
@@ -226,6 +227,7 @@ class Recent_Posts_Widget_Extended extends WP_Widget {
 		$instance['tag']            = $new_instance['tag'];
 		$instance['post_type']      = $new_instance['post_type'];
 		$instance['date']           = $new_instance['date'];
+		$instance['date_format']    = strip_tags( $new_instance['date_format'] );
 		$instance['readmore']       = $new_instance['readmore'];
 		$instance['readmore_text']  = strip_tags( $new_instance['readmore_text'] );
 		$instance['styles_default'] = $new_instance['styles_default'];
@@ -265,6 +267,7 @@ class Recent_Posts_Widget_Extended extends WP_Widget {
 			'tag'            => '',
 			'post_type'      => '',
 			'date'           => true,
+			'date_format'    => get_option('date_format'),
 			'readmore'       => false,
 			'readmore_text'  => __( 'Read More &raquo;', 'rpwe' ),
 			'styles_default' => true,
@@ -290,6 +293,7 @@ class Recent_Posts_Widget_Extended extends WP_Widget {
 		$tag            = $instance['tag'];
 		$post_type      = $instance['post_type'];
 		$date           = $instance['date'];
+		$date_format    = strip_tags( $instance['date_format'] );
 		$readmore       = $instance['readmore'];
 		$readmore_text  = strip_tags( $instance['readmore_text'] );
 		$styles_default = $instance['styles_default'];
@@ -322,7 +326,7 @@ class Recent_Posts_Widget_Extended extends WP_Widget {
 			</p>
 
 		</div>
-		
+
 		<div class="rpwe-columns-3">
 
 			<p>
@@ -433,6 +437,10 @@ class Recent_Posts_Widget_Extended extends WP_Widget {
 			<p>
 				<label class="input-checkbox" for="<?php echo esc_attr( $this->get_field_id( 'date' ) ); ?>"><?php _e( 'Display Date', 'rpwe' ); ?></label>
 				<input id="<?php echo esc_attr( $this->get_field_id( 'date' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'date' ) ); ?>" type="checkbox" value="1" <?php checked( '1', $date ); ?> />&nbsp;
+			</p>
+			<p>
+				<label for="<?php echo esc_attr( $this->get_field_id( 'date_format' ) ); ?>"><?php _e( 'Date format:', 'rpwe' ); ?></label>
+				<input class="widefat" id="<?php echo esc_attr( $this->get_field_id( 'date_format' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'date_format' ) ); ?>" type="text" value="<?php echo $date_format; ?>"/>
 			</p>
 
 		</div>
