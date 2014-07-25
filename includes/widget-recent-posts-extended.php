@@ -457,6 +457,7 @@ class Recent_Posts_Widget_Extended extends WP_Widget {
  */
 function rpwe_excerpt( $length ) {
 	$content = get_the_content();
+	$content = strip_shortcodes( $content );
 	$excerpt = wp_trim_words( $content, $length );
 
 	return $excerpt;
