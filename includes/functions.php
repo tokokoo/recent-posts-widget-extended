@@ -88,12 +88,12 @@ function rpwe_get_recent_posts( $args = array() ) {
 	do_action( 'rpwe_before_loop' );
 
 	// Display the default style of the plugin.
-	if ( $args['styles_default'] == true ) {
+	if ( $args['styles_default'] === "true" ) {
 		rpwe_custom_styles();
 	}
 
-	// If the default style is disbale then use the custom css if it not empty.
-	if ( $args['styles_default'] == false && ! empty( $args['css'] ) ) {
+	// If the default style is disabled then use the custom css if it's not empty.
+	if ( $args['styles_default'] === "false" && ! empty( $args['css'] ) ) {
 		echo '<style>' . $args['css'] . '</style>';
 	}
 	
