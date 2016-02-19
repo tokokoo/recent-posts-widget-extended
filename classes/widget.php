@@ -56,7 +56,7 @@ class Recent_Posts_Widget_Extended extends WP_Widget {
 	    );
 		if($paged && $args['id']== $_GET['type']) {
 				$instance['offset'] = $paged * $instance['limit']-1;
-				$paging_args['current'] = max( 1, $pagenum ),
+				$paging_args['current'] = max( 1, $pagenum );
 		}
 
 		$recent = rpwe_get_recent_posts( $instance );
