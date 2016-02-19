@@ -50,7 +50,16 @@ class Recent_Posts_Widget_Extended extends WP_Widget {
 		echo 'PAGED:'.$paged.' '.$args['id'].'<>'.$_GET['type'];
 //print_r($instance);
 		if($paged && $args['id']== $_GET['type']) {
-			echo '? BINGO';
+			//echo '? BINGO';
+
+ $paged = paginate_links(array(
+  'base' => str_replace( $pag_args = 999999999, '%#%', get_pagenum_link( $pag_args ) ),
+  'current' => max( 1, get_query_var('paged') ),
+  'total' => $wp_query->max_num_pages
+ ));
+$paged = str_replace( '/page/1', '', $paged );
+echo $paged;
+
 			$instance['offset'] = $paged * $instance['limit']-1;
 		}
 		
