@@ -122,6 +122,7 @@
 			<option value="rand" <?php selected( $instance['orderby'], 'rand' ); ?>><?php _e( 'Random', 'rpwe' ) ?></option>
 			<option value="comment_count" <?php selected( $instance['orderby'], 'comment_count' ); ?>><?php _e( 'Comment Count', 'rpwe' ) ?></option>
 			<option value="menu_order" <?php selected( $instance['orderby'], 'menu_order' ); ?>><?php _e( 'Menu Order', 'rpwe' ) ?></option>
+			<option value="meta_value" <?php selected( $instance['orderby'], 'meta_value' ); ?>><?php _e( 'Meta Value', 'rpwe' ) ?></option>
 		</select>
 	</p>
 
@@ -164,6 +165,14 @@
 		<input type="text" class="widefat" id="<?php echo $this->get_field_id( 'taxonomy' ); ?>" name="<?php echo $this->get_field_name( 'taxonomy' ); ?>" value="<?php echo esc_attr( $instance['taxonomy'] ); ?>" />
 		<small><?php _e( 'Ex: category=1,2,4&amp;post_tag=6,12', 'rpwe' );?><br />
 		<?php _e( 'Available: ', 'rpwe' ); echo implode( ', ', get_taxonomies( array( 'public' => true ) ) ); ?></small>
+	</p>
+	
+	<p>
+		<label for="<?php echo $this->get_field_id( 'meta_key' ); ?>">
+			<?php _e( 'Limit to Meta Key', 'recent-posts-widget-extended' ); ?>
+		</label>
+		<input type="text" class="widefat" id="<?php echo $this->get_field_id( 'meta_key' ); ?>" name="<?php echo $this->get_field_name( 'meta_key' ); ?>" value="<?php echo esc_attr( $instance['meta_key'] ); ?>" />
+		<small><?php _e( 'Ex: category=1,2,4&amp;post_tag=6,12', 'rpwe' );?></small>
 	</p>
 
 </div>
