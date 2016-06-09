@@ -258,6 +258,11 @@ function rpwe_get_posts( $args = array() ) {
 	if ( ! empty( $args['tag'] ) ) {
 		$query['tag__in'] = $args['tag'];
 	}
+	
+	// Limit posts based on meta key.
+	if ( ! empty( $args['meta_key'] ) ) {
+		$query['meta_key'] = $args['meta_key'];
+	}
 
 	/**
 	 * Taxonomy query.
