@@ -3,7 +3,7 @@
  * Various functions used by the plugin.
  *
  * @package    Recent_Posts_Widget_Extended
- * @since      0.9.4
+ * @since      0.9.9.7
  * @author     Satrya
  * @copyright  Copyright (c) 2014, Satrya
  * @license    http://www.gnu.org/licenses/gpl-2.0.html
@@ -50,6 +50,7 @@ function rpwe_get_default_args() {
 
 		'styles_default'   => true,
 		'css'              => $css_defaults,
+		'markupType'            => '',
 		'cssID'            => '',
 		'css_class'        => '',
 		'before'           => '',
@@ -167,7 +168,9 @@ function rpwe_get_recent_posts( $args = array() ) {
 
 						endif;
 
-						$html .= '<h3 class="rpwe-title"><a href="' . esc_url( get_permalink() ) . '" title="' . sprintf( esc_attr__( 'Permalink to %s', 'recent-posts-widget-extended' ), the_title_attribute( 'echo=0' ) ) . '" rel="bookmark">' . esc_attr( get_the_title() ) . '</a></h3>';
+                        if(empty($args['markupType'])) { $markupType = 'div'; } else { $markupType = $args['markupType']; }
+    
+						$html .= '<' . $markupType . ' class="rpwe-title"><a href="' . esc_url( get_permalink() ) . '" title="' . sprintf( esc_attr__( 'Permalink to %s', 'recent-posts-widget-extended' ), the_title_attribute( 'echo=0' ) ) . '" rel="bookmark">' . esc_attr( get_the_title() ) . '</a></' . $markupType . '>';
 
 						if ( $args['date'] ) :
 							$date = get_the_date();
