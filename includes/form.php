@@ -3,7 +3,7 @@
  * Widget forms.
  *
  * @package    Recent_Posts_Widget_Extended
- * @since      0.9.4
+ * @since      0.9.9.7
  * @author     Satrya
  * @copyright  Copyright (c) 2014, Satrya
  * @license    http://www.gnu.org/licenses/gpl-2.0.html
@@ -27,6 +27,14 @@
 	</p>
 
 	<p>
+		<label for="<?php echo $this->get_field_id( 'markupType' ); ?>">
+			<?php _e( 'Markup Type (ex: div, h3, h4)', 'recent-posts-widget-extended' ); ?>
+		</label>
+		<input class="widefat" id="<?php echo $this->get_field_id( 'markupType' ); ?>" name="<?php echo $this->get_field_name( 'markupType' ); ?>" type="text" value="<?php if(empty($instance['markupType'])) { echo 'h3'; } else { echo sanitize_html_class( $instance['markupType'] ); } ?>"/>
+	</p>	
+    
+    
+    <p>
 		<label for="<?php echo $this->get_field_id( 'cssID' ); ?>">
 			<?php _e( 'CSS ID', 'recent-posts-widget-extended' ); ?>
 		</label>
