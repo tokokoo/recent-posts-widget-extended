@@ -39,7 +39,7 @@ function rpwe_get_default_args() {
 		'thumb'            => true,
 		'thumb_height'     => 45,
 		'thumb_width'      => 45,
-		'thumb_default'    => 'http://placehold.it/45x45/f0f0f0/ccc',
+		'thumb_default'    => 'https://placehold.it/45x45/f0f0f0/ccc',
 		'thumb_align'      => 'rpwe-alignleft',
 		'date'             => true,
 		'date_relative'    => false,
