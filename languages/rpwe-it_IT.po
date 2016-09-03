@@ -1,0 +1,278 @@
+# Copyright (C) 2016 Satrya
+# This file is distributed under the same license as the Recent Posts Widget Extended package.
+msgid ""
+msgstr ""
+"Project-Id-Version: Recent Posts Widget Extended 0.9.9.6\n"
+"Report-Msgid-Bugs-To: https://www.theme-junkie.com/\n"
+"POT-Creation-Date: 2016-09-01 15:39+0200\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2016-09-01 16:20+0200\n"
+"Language-Team: Theme Junkie (support@theme-junkie.com)\n"
+"X-Generator: Poedit 1.8.8\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-KeywordsList: __;_e;__ngettext:1,2;_n:1,2;__ngettext_noop:1,2;"
+"_n_noop:1,2;_c;_nc:4c,1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;_nx_noop:4c,1,2\n"
+"X-Textdomain-Support: yes\n"
+"Last-Translator: \n"
+"Language: it_IT\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: classes/widget.php:24
+msgid ""
+"An advanced widget that gives you total control over the output of your "
+"site’s most recent Posts."
+msgstr ""
+"Un widget avanzato che ti dà il controllo totale sull'output degli articoli "
+"più recenti del tuo sito."
+
+#: classes/widget.php:35
+msgid "Recent Posts Extended"
+msgstr "Articoli Recenti Widget Esteso"
+
+#: includes/form.php:17 includes/form.php:119
+msgid "Title"
+msgstr "Titolo"
+
+#: includes/form.php:24
+msgid "Title URL"
+msgstr "Titolo URL"
+
+#: includes/form.php:31
+msgid "CSS ID"
+msgstr "CSS ID"
+
+#: includes/form.php:38
+msgid "CSS Class"
+msgstr "Classe CSS"
+
+#: includes/form.php:45
+msgid "HTML or text before the recent posts"
+msgstr "HTML o testo prima degli articoli recenti"
+
+#: includes/form.php:52
+msgid "HTML or text after the recent posts"
+msgstr "HTML o testo dopo gli articoli recenti"
+
+#: includes/form.php:64
+msgid "Ignore sticky posts"
+msgstr "Ignora gli articoli fissati in alto"
+
+#: includes/form.php:71
+msgid "Exclude current post"
+msgstr "Escludi articolo corrente"
+
+#: includes/form.php:77
+msgid "Post Types"
+msgstr "Tipi di Articolo"
+
+#: includes/form.php:93
+msgid "Post Status"
+msgstr "Stato dell'Articolo"
+
+#: includes/form.php:104
+msgid "Order"
+msgstr "Ordine"
+
+#: includes/form.php:107
+msgid "Descending"
+msgstr "Discendente"
+
+#: includes/form.php:108
+msgid "Ascending"
+msgstr "Ascendente"
+
+#: includes/form.php:114
+msgid "Orderby"
+msgstr "Ordina per"
+
+#: includes/form.php:117
+msgid "ID"
+msgstr "ID"
+
+#: includes/form.php:118
+msgid "Author"
+msgstr "Autore"
+
+#: includes/form.php:120
+msgid "Date"
+msgstr "Data"
+
+#: includes/form.php:121
+msgid "Modified"
+msgstr "Modificato"
+
+#: includes/form.php:122
+msgid "Random"
+msgstr "Casuale"
+
+#: includes/form.php:123
+msgid "Comment Count"
+msgstr "Conteggio Commenti"
+
+#: includes/form.php:124
+msgid "Menu Order"
+msgstr "Ordine del Menu"
+
+#: includes/form.php:130
+msgid "Limit to Category"
+msgstr "Limita alla Categoria"
+
+#: includes/form.php:146
+msgid "Limit to Tag"
+msgstr "Limita all'Etichetta"
+
+#: includes/form.php:162
+msgid "Limit to Taxonomy"
+msgstr "Limita alla Tassonomia"
+
+#: includes/form.php:165
+msgid "Ex: category=1,2,4&amp;post_tag=6,12"
+msgstr "Es. category=1,2,4&amp;post_tag=6,12"
+
+#: includes/form.php:166
+msgid "Available: "
+msgstr "Disponibile:"
+
+#: includes/form.php:175
+msgid "Number of posts to show"
+msgstr "Quantità di articoli da visualizzare"
+
+#: includes/form.php:182
+msgid "Offset"
+msgstr ""
+
+#: includes/form.php:185
+msgid "The number of posts to skip"
+msgstr "Quantità di articoli da saltare"
+
+#: includes/form.php:193
+msgid "Display Thumbnail"
+msgstr "Visualizza miniatura"
+
+#: includes/form.php:199
+msgid "Thumbnail (height,width,align)"
+msgstr "Miniatura (altezza,larghezza,allineamento)"
+
+#: includes/form.php:204
+msgid "Left"
+msgstr "Sinistra"
+
+#: includes/form.php:205
+msgid "Right"
+msgstr "Destra"
+
+#: includes/form.php:206
+msgid "Center"
+msgstr "Centro"
+
+#: includes/form.php:212
+msgid "Default Thumbnail"
+msgstr "Miniatura predefinita"
+
+#: includes/form.php:215
+msgid "Leave it blank to disable."
+msgstr "Lascia vuoto per disattivare."
+
+#: includes/form.php:223
+msgid "Display Excerpt"
+msgstr "Visualizza Riassunto"
+
+#: includes/form.php:229
+msgid "Excerpt Length"
+msgstr "Lunghezza Riassunto"
+
+#: includes/form.php:237
+msgid "Display Readmore"
+msgstr "Visualizza Leggi Ancora"
+
+#: includes/form.php:243
+msgid "Readmore Text"
+msgstr "Testo Leggi Ancora"
+
+#: includes/form.php:251
+msgid "Display Comment Count"
+msgstr "Visualizza Conteggio Commenti"
+
+#: includes/form.php:258
+msgid "Display Date"
+msgstr "Visualizza Data"
+
+#: includes/form.php:265
+msgid "Display Modification Date"
+msgstr "Visualizza Data Modifica"
+
+#: includes/form.php:272
+msgid "Use Relative Date. eg: 5 days ago"
+msgstr "Utilizza Data Relativa: es. 5 giorni fa"
+
+#: includes/form.php:284
+msgid "Use Default Styles"
+msgstr "Utilizza Stili Predefiniti"
+
+#: includes/form.php:290
+msgid "Custom CSS"
+msgstr "CSS Personalizzato"
+
+#: includes/form.php:293
+msgid ""
+"If you turn off the default styles, you can use these css code to customize "
+"the recent posts style."
+msgstr ""
+"Se disattivi gli stili predefiniti, puoi utilizzare questo codice css per "
+"personalizzare gli stili degli articoli recenti."
+
+#: includes/functions.php:22
+msgid "Recent Posts"
+msgstr "Articoli Recenti"
+
+#: includes/functions.php:48
+msgid "Read More &raquo;"
+msgstr "Leggi Ancora &raquo;"
+
+#: includes/functions.php:170
+msgid "Permalink to %s"
+msgstr "URL permanente a %s"
+
+#: includes/functions.php:175 includes/functions.php:181
+msgid "%s ago"
+msgstr "%s fa"
+
+#: includes/functions.php:188
+msgid "No Comments"
+msgstr "0 Commenti"
+
+#: includes/functions.php:190
+msgid "%s Comments"
+msgstr "%s Commenti"
+
+#: includes/functions.php:192
+msgid "1 Comment"
+msgstr "1 Commento"
+
+#. Plugin Name of the plugin/theme
+msgid "Recent Posts Widget Extended"
+msgstr "Articoli Recenti Widget Esteso"
+
+#. Plugin URI of the plugin/theme
+msgid "https://www.theme-junkie.com/plugins/recent-posts-widget-extended/"
+msgstr ""
+
+#. Description of the plugin/theme
+msgid ""
+"Enables advanced widget that gives you total control over the output of your "
+"site’s most recent Posts."
+msgstr ""
+"Abilita un widget avanzato che da un controllo completo sull'output degli "
+"articoli recenti sul tuo sito."
+
+#. Author of the plugin/theme
+msgid "Satrya"
+msgstr ""
+
+#. Author URI of the plugin/theme
+msgid "https://www.theme-junkie.com/"
+msgstr ""
