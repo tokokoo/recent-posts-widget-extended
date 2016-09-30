@@ -49,7 +49,28 @@ class Recent_Posts_Widget_Extended extends WP_Widget {
 	 */
 	public function widget( $args, $instance ) {
 		extract( $args );
+		$paged = get_query_var('paged');
+		echo 'PAGED:'.$paged.' '.$args['id'].'<>'.$_GET['type'];
+//print_r($instance);
+		if($paged && $args['id']== $_GET['type']) {
+			//echo '? BINGO';
 
+ $paged = paginate_links(array(
+  'base' => str_replace( $pag_args = 999999999, '%#%', get_pagenum_link( $pag_args ) ),
+  'current' => max( 1, get_query_var('paged') ),
+  'total' => $wp_query->max_num_pages
+ ));
+$paged = str_replace( '/page/1', '', $paged );
+echo $paged;
+
+			$instance['offset'] = $paged * $instance['limit']-1;
+		}
+		
+		$pag_args = array(
+                'add_args' => array( 'type' => $args['id'] )
+        );
+		
+		//echo 'ID:'.$args['id'];
 		$recent = rpwe_get_recent_posts( $instance );
 
 		if ( $recent ) {
@@ -68,7 +89,7 @@ class Recent_Posts_Widget_Extended extends WP_Widget {
 
 			// Get the recent posts query.
 			echo $recent;
-
+			echo paginate_links($pag_args);
 			// Close the theme's widget wrapper.
 			echo $after_widget;
 
