@@ -49,14 +49,37 @@ class Recent_Posts_Widget_Extended extends WP_Widget {
 	 */
 	public function widget( $args, $instance ) {
 		extract( $args );
+		
+		// Our code #1 starts ****************************************************
+		$pagenum = get_query_var('paged');
+		global $wp_query;
+		
+		$paging_args = array(
+				'base' => str_replace( $big = 999999999, '%#%', get_pagenum_link( $big ) ),  // If doesnt exist - add_args are completely ignored somewhy
+				'current' => 1,  // default in case it is not selected sidebar
+                'total' => $wp_query->max_num_pages,
+				'add_args' => array( 'htype' => $args['id'] )  // You MUST have it otherwise it does not know what sidebar is used
+	    );
+		
+		if($pagenum && $args['id']== $_GET['htype']) {
+				$instance['offset'] = $pagenum * $instance['limit']-1;
+				$paging_args['current'] = max(1, $pagenum); // if selected sidebar - get it as get_query_var('paged')
+		}
 
+		$pagination = str_replace( '/page/1', '', paginate_links($paging_args));		
+		
+		// Our code #1 ends *******************************************************
+		
 		$recent = rpwe_get_recent_posts( $instance );
 
 		if ( $recent ) {
 
 			// Output the theme's $before_widget wrapper.
 			echo $before_widget;
-
+			//*******************************************************
+			echo $pagination; // ********** #1  top widget pagination
+			//*******************************************************
+			
 			// If both title and title url is not empty, display it.
 			if ( ! empty( $instance['title_url'] ) && ! empty( $instance['title'] ) ) {
 				echo $before_title . '<a href="' . esc_url( $instance['title_url'] ) . '" title="' . esc_attr( $instance['title'] ) . '">' . apply_filters( 'widget_title',  $instance['title'], $instance, $this->id_base ) . '</a>' . $after_title;
@@ -68,7 +91,9 @@ class Recent_Posts_Widget_Extended extends WP_Widget {
 
 			// Get the recent posts query.
 			echo $recent;
-
+			//********************************************************	
+			echo $pagination; // ********* #1 bottom widget pagination
+			//********************************************************
 			// Close the theme's widget wrapper.
 			echo $after_widget;
 
