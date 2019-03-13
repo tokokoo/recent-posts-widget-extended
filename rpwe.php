@@ -7,7 +7,7 @@
  * Author:       Theme Junkie
  * Author URI:   https://www.theme-junkie.com/
  * Author Email: support@theme-junkie.com
- * Text Domain:  recent-posts-widget-extended
+ * Text Domain:  rpwe
  * Domain Path:  /languages
  *
  * This program is free software; you can redistribute it and/or modify it under the terms of the GNU
