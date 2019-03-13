@@ -41,6 +41,9 @@ function rpwe_get_default_args() {
 		'thumb_width'      => 45,
 		'thumb_default'    => 'http://placehold.it/45x45/f0f0f0/ccc',
 		'thumb_align'      => 'rpwe-alignleft',
+		'author'           => false,
+		'author_link'      => false,
+		'category_list'    => false,
 		'date'             => true,
 		'date_relative'    => false,
 		'date_modified'    => false,
@@ -168,6 +171,18 @@ function rpwe_get_recent_posts( $args = array() ) {
 						endif;
 
 						$html .= '<h3 class="rpwe-title"><a href="' . esc_url( get_permalink() ) . '" title="' . sprintf( esc_attr__( 'Permalink to %s', 'recent-posts-widget-extended' ), the_title_attribute( 'echo=0' ) ) . '" rel="bookmark">' . esc_attr( get_the_title() ) . '</a></h3>';
+
+						if ( $args['author'] ) :
+							if ( $args['author_link'] ) :
+								$html .= '<a href="'.get_author_posts_url( get_the_author_meta( 'ID' ), get_the_author_meta( 'user_nicename' ) ).'" class="rpwe-author author vcard"><span class="fn">'.esc_html(get_the_author()).'</span></a>';
+							else :
+								$html .= '<span class="rpwe-author author vcard"><span class="fn">'.esc_html(get_the_author()).'</span></span>';
+							endif;
+						endif;
+
+						if ( $args['category_list'] ) :
+							$html .= get_the_category_list();
+						endif;
 
 						if ( $args['date'] ) :
 							$date = get_the_date();

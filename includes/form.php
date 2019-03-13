@@ -244,11 +244,32 @@
 		</label>
 		<input class="widefat" id="<?php echo $this->get_field_id( 'readmore_text' ); ?>" name="<?php echo $this->get_field_name( 'readmore_text' ); ?>" type="text" value="<?php echo strip_tags( $instance['readmore_text'] ); ?>" />
 	</p>
-	
+
 	<p>
 		<input id="<?php echo $this->get_field_id( 'comment_count' ); ?>" name="<?php echo $this->get_field_name( 'comment_count' ); ?>" type="checkbox" <?php checked( $instance['comment_count'] ); ?> />
 		<label for="<?php echo $this->get_field_id( 'comment_count' ); ?>">
 			<?php _e( 'Display Comment Count', 'recent-posts-widget-extended' ); ?>
+		</label>
+	</p>
+
+	<p>
+		<input id="<?php echo $this->get_field_id( 'author' ); ?>" name="<?php echo $this->get_field_name( 'author' ); ?>" type="checkbox" <?php checked( $instance['author'] ); ?> />
+		<label for="<?php echo $this->get_field_id( 'author' ); ?>">
+			<?php _e( 'Display Author', 'recent-posts-widget-extended' ); ?>
+		</label>
+	</p>
+
+	<p>
+		<input id="<?php echo $this->get_field_id( 'author_link' ); ?>" name="<?php echo $this->get_field_name( 'author_link' ); ?>" type="checkbox" <?php checked( $instance['author_link'] ); ?> />
+		<label for="<?php echo $this->get_field_id( 'author_link' ); ?>">
+			<?php _e( 'Link to Author Page', 'recent-posts-widget-extended' ); ?>
+		</label>
+	</p>
+
+	<p>
+		<input id="<?php echo $this->get_field_id( 'category_list' ); ?>" name="<?php echo $this->get_field_name( 'category_list' ); ?>" type="checkbox" <?php checked( $instance['category_list'] ); ?> />
+		<label for="<?php echo $this->get_field_id( 'category_list' ); ?>">
+			<?php _e( 'Display Categories', 'recent-posts-widget-extended' ); ?>
 		</label>
 	</p>
 
@@ -258,21 +279,21 @@
 			<?php _e( 'Display Date', 'recent-posts-widget-extended' ); ?>
 		</label>
 	</p>
-	
+
 	<p>
 		<input id="<?php echo $this->get_field_id( 'date_modified' ); ?>" name="<?php echo $this->get_field_name( 'date_modified' ); ?>" type="checkbox" <?php checked( $instance['date_modified'] ); ?> />
 		<label for="<?php echo $this->get_field_id( 'date_modified' ); ?>">
 			<?php _e( 'Display Modification Date', 'recent-posts-widget-extended' ); ?>
 		</label>
 	</p>
-	
+
 	<p>
 		<input id="<?php echo $this->get_field_id( 'date_relative' ); ?>" name="<?php echo $this->get_field_name( 'date_relative' ); ?>" type="checkbox" <?php checked( $instance['date_relative'] ); ?> />
 		<label for="<?php echo $this->get_field_id( 'date_relative' ); ?>">
 			<?php _e( 'Use Relative Date. eg: 5 days ago', 'recent-posts-widget-extended' ); ?>
 		</label>
 	</p>
-	
+
 
 </div>
 

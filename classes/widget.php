@@ -113,6 +113,9 @@ class Recent_Posts_Widget_Extended extends WP_Widget {
 
 		$instance['excerpt']          = isset( $new_instance['excerpt'] ) ? (bool) $new_instance['excerpt'] : false;
 		$instance['length']           = intval( $new_instance['length'] );
+		$instance['author']           = isset( $new_instance['author'] ) ? (bool) $new_instance['author'] : false;
+		$instance['author_link']      = isset( $new_instance['author_link'] ) ? (bool) $new_instance['author_link'] : false;
+		$instance['category_list']      = isset( $new_instance['category_list'] ) ? (bool) $new_instance['category_list'] : false;
 		$instance['date']             = isset( $new_instance['date'] ) ? (bool) $new_instance['date'] : false;
 		$instance['date_relative']    = isset( $new_instance['date_relative'] ) ? (bool) $new_instance['date_relative'] : false;
 		$instance['date_modified']    = isset( $new_instance['date_modified'] ) ? (bool) $new_instance['date_modified'] : false;
