@@ -106,18 +106,18 @@ if(!class_exists('Rpwe_Resize')) {
                 $dst_h = $orig_h;
             } else {
 
-				if ( ! $dims ) {
-					// Can't resize, so return false saying that the action to do could not be processed as planned.
-					return false;
-				}
+                if ( ! $dims ) {
+                    // Can't resize, so return false saying that the action to do could not be processed as planned.
+                    return false;
+                }
 
-				$dst_w = $dims[4];
-				$dst_h = $dims[5];
+                $dst_w = $dims[4];
+                $dst_h = $dims[5];
 
-				// Use this to check if cropped image already exists, so we can return that instead.
-				$suffix = "{$dst_w}x{$dst_h}";
-				$dst_rel_path = str_replace( '.' . $ext, '', $rel_path );
-				$destfilename = "{$upload_dir}{$dst_rel_path}-{$suffix}.{$ext}";
+                // Use this to check if cropped image already exists, so we can return that instead.
+                $suffix = "{$dst_w}x{$dst_h}";
+                $dst_rel_path = str_replace( '.' . $ext, '', $rel_path );
+                $destfilename = "{$upload_dir}{$dst_rel_path}-{$suffix}.{$ext}";
 
                 if ( ( true == $crop && false == $upscale && ( $dst_w < $width || $dst_h < $height ) ) ) {
                     // Can't resize, so return false saying that the action to do could not be processed as planned.
