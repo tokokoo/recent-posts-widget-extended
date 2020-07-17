@@ -67,19 +67,19 @@ if(!class_exists('Rpwe_Resize')) {
             $upload_info = wp_upload_dir();
             $upload_dir = $upload_info['basedir'];
             $upload_url = $upload_info['baseurl'];
-            
+
             $http_prefix = "http://";
             $https_prefix = "https://";
-            
-            /* if the $url scheme differs from $upload_url scheme, make them match 
+
+            /* if the $url scheme differs from $upload_url scheme, make them match
                if the schemes differe, images don't show up. */
             if(!strncmp($url,$https_prefix,strlen($https_prefix))){ //if url begins with https:// make $upload_url begin with https:// as well
                 $upload_url = str_replace($http_prefix,$https_prefix,$upload_url);
             }
             elseif(!strncmp($url,$http_prefix,strlen($http_prefix))){ //if url begins with http:// make $upload_url begin with http:// as well
-                $upload_url = str_replace($https_prefix,$http_prefix,$upload_url);      
+                $upload_url = str_replace($https_prefix,$http_prefix,$upload_url);
             }
-            
+
 
             // Check if $img_url is local.
             if ( false === strpos( $url, $upload_url ) ) return false;
@@ -98,8 +98,6 @@ if(!class_exists('Rpwe_Resize')) {
 
             // Get image size after cropping.
             $dims = image_resize_dimensions( $orig_w, $orig_h, $width, $height, $crop );
-            $dst_w = $dims[4];
-            $dst_h = $dims[5];
 
             // Return the original image only if it exactly fits the needed measures.
             if ( ! $dims && ( ( ( null === $height && $orig_w == $width ) xor ( null === $width && $orig_h == $height ) ) xor ( $height == $orig_h && $width == $orig_w ) ) ) {
@@ -107,17 +105,27 @@ if(!class_exists('Rpwe_Resize')) {
                 $dst_w = $orig_w;
                 $dst_h = $orig_h;
             } else {
-                // Use this to check if cropped image already exists, so we can return that instead.
-                $suffix = "{$dst_w}x{$dst_h}";
-                $dst_rel_path = str_replace( '.' . $ext, '', $rel_path );
-                $destfilename = "{$upload_dir}{$dst_rel_path}-{$suffix}.{$ext}";
 
-                if ( ! $dims || ( true == $crop && false == $upscale && ( $dst_w < $width || $dst_h < $height ) ) ) {
+				if ( ! $dims ) {
+					// Can't resize, so return false saying that the action to do could not be processed as planned.
+					return false;
+				}
+
+				$dst_w = $dims[4];
+				$dst_h = $dims[5];
+
+				// Use this to check if cropped image already exists, so we can return that instead.
+				$suffix = "{$dst_w}x{$dst_h}";
+				$dst_rel_path = str_replace( '.' . $ext, '', $rel_path );
+				$destfilename = "{$upload_dir}{$dst_rel_path}-{$suffix}.{$ext}";
+
+                if ( ( true == $crop && false == $upscale && ( $dst_w < $width || $dst_h < $height ) ) ) {
                     // Can't resize, so return false saying that the action to do could not be processed as planned.
                     return false;
                 }
+
                 // Else check if cache exists.
-                elseif ( file_exists( $destfilename ) && getimagesize( $destfilename ) ) {
+                if ( file_exists( $destfilename ) && getimagesize( $destfilename ) ) {
                     $img_url = "{$upload_url}{$dst_rel_path}-{$suffix}.{$ext}";
                 }
                 // Else, we resize the image and return the new resized image url.
